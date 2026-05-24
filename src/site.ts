@@ -9,8 +9,9 @@ import treeNight from './assets/brand/tree_night.svg'
 
 export { logo }
 
-// TODO: replace with the real APK / store link once OptiLife ships.
-export const DOWNLOAD_URL = '#download'
+// The APK / store link, supplied via VITE_DOWNLOAD_URL in .env.
+// Falls back to '#' so the build never breaks if it's unset.
+export const DOWNLOAD_URL = import.meta.env.VITE_DOWNLOAD_URL ?? '#'
 
 export type Category = {
   name: string
