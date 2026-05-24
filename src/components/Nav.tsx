@@ -39,22 +39,6 @@ export default function Nav() {
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          {!onGuide && (
-            <>
-              <a
-                href="#features"
-                className="hidden font-display text-sm font-semibold text-cream/65 hover:text-cream md:inline"
-              >
-                Features
-              </a>
-              <a
-                href="#categories"
-                className="hidden font-display text-sm font-semibold text-cream/65 hover:text-cream md:inline"
-              >
-                Categories
-              </a>
-            </>
-          )}
           {onGuide ? (
             <PopButton href="/" variant="ghost" size="sm" router>
               Home

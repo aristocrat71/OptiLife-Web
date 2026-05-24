@@ -1,25 +1,20 @@
 import { useEffect, useState } from 'react'
+import sqScreen from '../../assets/sq_screen.png'
+import biomeScreen from '../../assets/biome_screen.png'
+import journalScreen from '../../assets/journal_screen.png'
+import tasksScreen from '../../assets/tasks_screen.png'
+import analysisScreen from '../../assets/analysis_screen.png'
+import workshopScreen from '../../assets/workshop_screen.png'
 
-type Slide = {
-  label: string
-  from: string
-  to: string
-  // img?: string  // ← drop a real screenshot here (see note below)
-}
+type Slide = { name: string; img: string }
 
-/**
- * TODO: replace these placeholder slides with real app screenshots.
- * 1. Put PNGs in `src/assets/screenshots/` (e.g. side-quests.png).
- * 2. `import sideQuests from '../assets/screenshots/side-quests.png'`
- * 3. Add `img: sideQuests` to the matching slide and the component will
- *    render the image instead of the gradient placeholder.
- */
 const SLIDES: Slide[] = [
-  { label: 'Side Quests', from: 'var(--color-adventure)', to: 'var(--color-pink)' },
-  { label: 'Your Biome', from: 'var(--color-biome)', to: 'var(--color-teal)' },
-  { label: 'Journal', from: 'var(--color-creative)', to: 'var(--color-purple)' },
-  { label: 'Analytics', from: 'var(--color-night)', to: 'var(--color-teal)' },
-  { label: 'Habits', from: 'var(--color-teal)', to: 'var(--color-biome)' },
+  { name: 'Side Quests', img: sqScreen },
+  { name: 'Your Biome', img: biomeScreen },
+  { name: 'Journal', img: journalScreen },
+  { name: 'Tasks', img: tasksScreen },
+  { name: 'Analytics', img: analysisScreen },
+  { name: 'Workshop', img: workshopScreen },
 ]
 
 export default function ScreenshotGallery() {
@@ -36,24 +31,20 @@ export default function ScreenshotGallery() {
 
   return (
     <div className="mx-auto w-full max-w-[260px]">
-      {/* phone frame */}
-      <div className="glow-purple relative aspect-[9/19] rounded-[2.5rem] border-[3px] border-ink bg-ink p-2 shadow-pop-lg">
+      {/* phone frame (inner screen matches the 1080×2424 screenshots) */}
+      <div className="glow-purple relative aspect-[1080/2424] rounded-[2.5rem] border-[3px] border-ink bg-ink p-2 shadow-pop-lg">
         {/* notch */}
         <div className="absolute left-1/2 top-2 z-10 h-1.5 w-16 -translate-x-1/2 rounded-full bg-cream/40" />
-        <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
+        <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-ink">
           {SLIDES.map((s, i) => (
-            <div
-              key={s.label}
-              className="absolute inset-0 flex items-center justify-center transition-opacity duration-700"
-              style={{
-                opacity: i === active ? 1 : 0,
-                background: `linear-gradient(160deg, ${s.from}, ${s.to})`,
-              }}
-            >
-              <span className="rounded-full border-[2.5px] border-ink bg-cream px-4 py-1.5 font-display text-sm font-bold text-ink shadow-pop-sm">
-                {s.label}
-              </span>
-            </div>
+            <img
+              key={s.name}
+              src={s.img}
+              alt={`OptiLife — ${s.name} screen`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+              style={{ opacity: i === active ? 1 : 0 }}
+            />
           ))}
         </div>
       </div>
@@ -62,9 +53,9 @@ export default function ScreenshotGallery() {
       <div className="mt-4 flex justify-center gap-2">
         {SLIDES.map((s, i) => (
           <button
-            key={s.label}
+            key={s.name}
             type="button"
-            aria-label={`Show ${s.label}`}
+            aria-label={`Show ${s.name}`}
             onClick={() => setActive(i)}
             className={`h-2.5 rounded-full border-2 border-ink transition-all ${
               i === active ? 'w-6 bg-purple' : 'w-2.5 bg-cream/40'

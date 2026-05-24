@@ -54,16 +54,17 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          OptiLife opens on the <strong>Side Quests</strong> screen. Everything
-          else is one swipe away: swipe left for your <strong>Biome</strong>,
-          right for <strong>Tasks</strong>, then <strong>Journal &amp; Habits</strong>.
+          OptiLife drops you straight onto the <strong>Side Quests</strong>{' '}
+          screen. Everything else is just a swipe away: swipe left for your{' '}
+          <strong>Biome</strong>, right for <strong>Tasks</strong>, then{' '}
+          <strong>Journal and Habits</strong>.
         </p>
         <p className="mt-3">
-          At the top of every screen sit three floating controls: your{' '}
-          <strong>Life Energy ring</strong> (left), the pulsing{' '}
-          <strong>nav button</strong> (middle — tap it for a radial menu to jump
-          anywhere), and the <strong>calendar</strong> (right). Swipe vertically
-          on any screen to move between days.
+          Three little buttons float at the top of every screen and follow you
+          everywhere: your <strong>Life Energy ring</strong> on the left, the
+          pulsing <strong>nav button</strong> in the middle (tap it for a radial
+          menu that zips you anywhere), and the <strong>calendar</strong> on the
+          right. Want a different day? Swipe up or down.
         </p>
       </>
     ),
@@ -75,18 +76,19 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Side quests are small, intentional, real-world things — “go for a
-          walk”, “sketch something”, “message an old friend”. Each day rolls a
-          fresh set from your active pool (80+ curated presets plus any you’ve
-          made). Tap a quest to mark it complete and earn <strong>+10 LE</strong>.
+          Side quests are the small, real-world stuff worth doing: “go for a
+          walk”, “sketch something”, “text an old friend”. Every day deals you a
+          fresh hand from your active pool (80+ presets, plus anything you cook up
+          yourself). Tap one to mark it done and bank <strong>+10 LE</strong>.
         </p>
         <p className="mt-3">
-          Today not feeling it? <strong>Re-roll</strong> for a new set — once per
-          day, costing 10 LE, and only before you’ve completed anything that day.
+          Today’s hand not doing it for you? Hit <strong>Re-roll</strong> for a
+          brand new set. Just once a day, it costs 10 LE, and only before you’ve
+          finished anything.
         </p>
         <Note>
-          Only today’s rolled quests can be completed today — the roll is the
-          gate. Past days are read-only.
+          Only today’s rolled quests count today. The roll is the gate, and past
+          days are sealed in the history books.
         </Note>
       </>
     ),
@@ -98,15 +100,15 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Life Energy (LE) is the one and only currency — no XP, no coins. You
-          earn it by living:
+          Life Energy (LE) is the one and only currency. No XP, no coins, no
+          nonsense. You earn it simply by living:
         </p>
         <LeTable />
         <p>
-          Every <strong>50 LE</strong> earns a level. The ring at the top-left
-          shows your progress within the current level (0 → 50), and a small
-          badge shows your level number. Unmarking a quest or habit on the same
-          day cleanly refunds the energy.
+          Every <strong>50 LE</strong> bumps you up a level. The ring up top
+          tracks your progress through the current level (0 to 50), with a little
+          badge showing your number. Change your mind? Unmark a quest or habit the
+          same day and the energy comes right back.
         </p>
       </>
     ),
@@ -118,21 +120,21 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Every level-up plants exactly one tree in your biome, and{' '}
-          <strong>you choose where it goes</strong> — the app drops into
-          placement mode and you tap a tile on the grid. The tree’s type matches
-          the category of quests you’ve been completing most.
+          Every level-up plants exactly one tree, and{' '}
+          <strong>you get to pick the spot</strong>. The app slips into placement
+          mode and you tap a tile to plant it. The tree’s type? That depends on
+          whichever quest category you’ve been crushing lately.
         </p>
         <p className="mt-3">
-          Your biome holds <strong>100 trees</strong>. Plant the 100th and you’re
-          invited to <strong>reboot</strong>: a “dimensional travel” animation
-          resets you to a fresh, empty world (your level returns to 1), while your
-          completed-worlds count ticks up as a trophy. History stays intact for
-          analytics.
+          Your biome fits <strong>100 trees</strong>. Plant the 100th and you can{' '}
+          <strong>reboot</strong>: a wild “dimensional travel” animation whisks you
+          off to a brand new, empty world (back to Level 1), while your
+          completed-worlds count clicks up like a trophy. Don’t worry, your history
+          sticks around for the stats.
         </p>
         <Note>
-          Tip: while placement mode is active, every other control is locked —
-          the only valid move is placing your tree. Tap a tile to plant it.
+          Heads up: while you’re placing a tree, everything else is locked. The one
+          and only move is planting that tree. Tap a tile and watch it grow.
         </Note>
       </>
     ),
@@ -144,14 +146,14 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Habits are daily and binary. A <strong>good</strong> habit is toggled
-          “Done”; a <strong>bad</strong> habit is toggled “Avoided”. Either one
-          logged for the day drips <strong>+2 LE</strong>. Not logging is simply
-          neutral — there’s no penalty and no guilt.
+          Habits are daily and dead simple: one tap, on or off. Good habits get
+          toggled <strong>“Done”</strong>, bad ones get toggled{' '}
+          <strong>“Avoided”</strong>, and either one nets you <strong>+2 LE</strong>.
+          Skip it? No worries, no guilt, no penalty.
         </p>
         <p className="mt-3">
-          Habits live on the Journal screen as a strip of toggle chips, and you
-          create or edit them in the Workshop (see Settings).
+          You’ll find your habits as a row of chips on the Journal screen, and you
+          can add or tweak them over in the Workshop (peek at Settings).
         </p>
       </>
     ),
@@ -162,11 +164,11 @@ const SECTIONS: Section[] = [
     icon: 'check',
     body: (
       <p>
-        Tasks are plain life-admin to-dos with optional due dates. They award{' '}
-        <strong>no LE</strong> and don’t affect your biome — they’re just a tidy
-        place for the necessary stuff. Unlike quests and journals, tasks on{' '}
-        <strong>future dates are fully editable</strong>, because planning ahead
-        is the whole point.
+        Tasks are your plain old life-admin to-dos, with optional due dates. They
+        hand out <strong>no LE</strong> and leave your biome alone. They’re just a
+        tidy spot for the boring-but-necessary stuff. Bonus: unlike quests and
+        journals, you can fully edit tasks on{' '}
+        <strong>future dates</strong>, because planning ahead is kind of the point.
       </p>
     ),
   },
@@ -177,14 +179,14 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          One entry per day, autosaved as you type. Choose your writing style in
-          Settings — flowing <strong>handwriting</strong> or a clean{' '}
-          <strong>formal</strong> serif — and left or right alignment. It’s your
-          space; it earns no LE.
+          One entry a day, saved automatically as you type. Pick your vibe in
+          Settings: loopy <strong>handwriting</strong> or a crisp{' '}
+          <strong>formal</strong> serif, aligned left or right. It’s your space,
+          and it earns zero LE (that’s the point).
         </p>
         <p className="mt-3">
-          Export any date range to a beautifully paginated PDF from Settings →
-          Export journal.
+          Want a keepsake? Export any range of days to a gorgeous, paginated PDF
+          from Settings, then Export journal.
         </p>
       </>
     ),
@@ -196,14 +198,15 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Open Settings from the radial nav menu (the pulsing middle button → Set).
-          From here you can toggle the liquid-fill background, set your journal
-          style, manage reminders, and open the <strong>Workshop</strong>.
+          Pop open Settings from the radial nav menu (that pulsing middle button,
+          then Set). From here you can flip the liquid-fill background on or off,
+          set your journal style, wrangle reminders, and open the{' '}
+          <strong>Workshop</strong>.
         </p>
         <p className="mt-3">
-          The Workshop is where you curate your game: create, edit and delete your
-          own <strong>quests</strong> and <strong>habits</strong>, and toggle which
-          preset quests are in your active pool.
+          The Workshop is your backstage pass: build, edit, and delete your own{' '}
+          <strong>quests</strong> and <strong>habits</strong>, and switch preset
+          quests in or out of your active pool.
         </p>
       </>
     ),
@@ -214,10 +217,10 @@ const SECTIONS: Section[] = [
     icon: 'bell',
     body: (
       <p>
-        Set up to two daily local reminders — a morning nudge for your quests and
-        an evening one for your journal — each at a time you pick. They’re
-        on-device notifications; turn them on in Settings and grant the OS
-        permission when asked.
+        Set up to two daily nudges: a morning poke about your quests and an
+        evening one for your journal, each at a time you choose. They’re on-device
+        notifications, so flip them on in Settings and say yes when your phone asks
+        for permission.
       </p>
     ),
   },
@@ -228,15 +231,15 @@ const SECTIONS: Section[] = [
     body: (
       <>
         <p>
-          Swipe vertically to change the day, or long-press the calendar to jump
-          to any date. The biome ignores dates entirely — it’s your cumulative
+          Swipe up or down to hop between days, or long-press the calendar to leap
+          to any date. The biome doesn’t care about dates at all. It’s your forever
           world.
         </p>
         <Note tone="warn">
-          Past days are <strong>read-only</strong>: you can look but not change
-          history, which keeps progress honest. Side quests and journals on{' '}
-          <strong>future</strong> days are locked until the day arrives — only
-          tasks can be planned ahead.
+          Past days are <strong>read-only</strong>: look all you like, but you
+          can’t rewrite history (keeps things honest). Quests and journals on{' '}
+          <strong>future</strong> days stay locked until the day actually arrives.
+          Only tasks get to plan ahead.
         </Note>
       </>
     ),
@@ -268,13 +271,13 @@ export default function Guide() {
       <header className="mb-10 text-center">
         <span className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-yellow px-4 py-1.5 font-display text-sm font-semibold text-ink shadow-pop-sm">
           <Icon name="book" className="h-4 w-4" />
-          The manual
+          The playbook
         </span>
         <h1 className="mt-5 text-3xl text-cream sm:text-4xl lg:text-5xl">
-          How to use OptiLife
+          How to play OptiLife
         </h1>
         <p className="mx-auto mt-3 max-w-lg text-base font-semibold text-cream/65 sm:text-lg">
-          Everything you need to know to play your life.
+          Your quick guide to leveling up real life.
         </p>
       </header>
 
