@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
+import Icon, { type IconName } from '../components/Icon'
 
 type Section = {
   id: string
   title: string
-  glyph: string
+  icon: IconName
   body: ReactNode
 }
 
 /** A chunky highlighted callout for tips / rules. */
 function Note({ tone = 'tip', children }: { tone?: 'tip' | 'warn'; children: ReactNode }) {
-  const styles =
-    tone === 'warn'
-      ? 'border-coral bg-coral/10'
-      : 'border-teal bg-teal/10'
+  const styles = tone === 'warn' ? 'border-coral bg-coral/10' : 'border-teal bg-teal/10'
   return (
-    <div className={`my-4 rounded-2xl border-[2.5px] ${styles} p-4 text-[15px] font-semibold text-ink/80`}>
+    <div
+      className={`my-4 rounded-2xl border-[2.5px] ${styles} p-4 text-[15px] font-semibold text-ink/80`}
+    >
       {children}
     </div>
   )
@@ -50,7 +50,7 @@ const SECTIONS: Section[] = [
   {
     id: 'getting-started',
     title: 'Getting started',
-    glyph: '👋',
+    icon: 'rocket',
     body: (
       <>
         <p>
@@ -71,7 +71,7 @@ const SECTIONS: Section[] = [
   {
     id: 'side-quests',
     title: 'Side Quests & rolling',
-    glyph: '🎯',
+    icon: 'target',
     body: (
       <>
         <p>
@@ -94,7 +94,7 @@ const SECTIONS: Section[] = [
   {
     id: 'life-energy',
     title: 'Life Energy & levels',
-    glyph: '⚡',
+    icon: 'zap',
     body: (
       <>
         <p>
@@ -114,7 +114,7 @@ const SECTIONS: Section[] = [
   {
     id: 'biome',
     title: 'The Biome & trees',
-    glyph: '🌳',
+    icon: 'sprout',
     body: (
       <>
         <p>
@@ -140,7 +140,7 @@ const SECTIONS: Section[] = [
   {
     id: 'habits',
     title: 'Habits',
-    glyph: '🔁',
+    icon: 'repeat',
     body: (
       <>
         <p>
@@ -159,7 +159,7 @@ const SECTIONS: Section[] = [
   {
     id: 'tasks',
     title: 'Tasks',
-    glyph: '✅',
+    icon: 'check',
     body: (
       <p>
         Tasks are plain life-admin to-dos with optional due dates. They award{' '}
@@ -173,7 +173,7 @@ const SECTIONS: Section[] = [
   {
     id: 'journal',
     title: 'Journal',
-    glyph: '📓',
+    icon: 'book',
     body: (
       <>
         <p>
@@ -192,7 +192,7 @@ const SECTIONS: Section[] = [
   {
     id: 'settings',
     title: 'Settings & Workshop',
-    glyph: '⚙️',
+    icon: 'settings',
     body: (
       <>
         <p>
@@ -211,7 +211,7 @@ const SECTIONS: Section[] = [
   {
     id: 'reminders',
     title: 'Reminders',
-    glyph: '🔔',
+    icon: 'bell',
     body: (
       <p>
         Set up to two daily local reminders — a morning nudge for your quests and
@@ -224,7 +224,7 @@ const SECTIONS: Section[] = [
   {
     id: 'dates',
     title: 'Time travel & read-only days',
-    glyph: '📅',
+    icon: 'calendar',
     body: (
       <>
         <p>
@@ -264,18 +264,21 @@ export default function Guide() {
   }, [])
 
   return (
-    <main className="mx-auto max-w-6xl px-5 py-12">
+    <main className="mx-auto max-w-6xl px-5 py-10 sm:py-12">
       <header className="mb-10 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-yellow px-4 py-1.5 font-display text-sm font-semibold shadow-pop-sm">
-          📖 The manual
+        <span className="inline-flex items-center gap-2 rounded-full border-[2.5px] border-ink bg-yellow px-4 py-1.5 font-display text-sm font-semibold text-ink shadow-pop-sm">
+          <Icon name="book" className="h-4 w-4" />
+          The manual
         </span>
-        <h1 className="mt-5 text-4xl sm:text-5xl">How to use OptiLife</h1>
-        <p className="mx-auto mt-3 max-w-lg text-lg font-semibold text-ink/65">
+        <h1 className="mt-5 text-3xl text-cream sm:text-4xl lg:text-5xl">
+          How to use OptiLife
+        </h1>
+        <p className="mx-auto mt-3 max-w-lg text-base font-semibold text-cream/65 sm:text-lg">
           Everything you need to know to play your life.
         </p>
       </header>
 
-      <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
         {/* sticky table of contents */}
         <aside className="hidden lg:block">
           <nav className="sticky top-24 space-y-1">
@@ -283,30 +286,30 @@ export default function Guide() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className={`block rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
+                className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-semibold transition-colors ${
                   active === s.id
                     ? 'bg-purple text-cream'
-                    : 'text-ink/60 hover:bg-haze hover:text-ink'
+                    : 'text-cream/55 hover:bg-white/10 hover:text-cream'
                 }`}
               >
-                <span className="mr-2">{s.glyph}</span>
+                <Icon name={s.icon} className="h-4 w-4 shrink-0" />
                 {s.title}
               </a>
             ))}
           </nav>
         </aside>
 
-        {/* sections */}
-        <div className="max-w-2xl">
+        {/* reading panel */}
+        <div className="rounded-[28px] border-[3px] border-ink bg-paper p-6 text-ink shadow-pop sm:p-9">
           {SECTIONS.map((s) => (
             <section
               key={s.id}
               id={s.id}
-              className="mb-12 scroll-mt-24 border-b-[2.5px] border-ink/10 pb-10 last:border-0"
+              className="mb-10 scroll-mt-24 border-b-[2.5px] border-ink/10 pb-9 last:mb-0 last:border-0 last:pb-0"
             >
               <h2 className="flex items-center gap-3 text-2xl sm:text-3xl">
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl border-[2.5px] border-ink bg-paper text-2xl shadow-pop-sm">
-                  {s.glyph}
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border-[2.5px] border-ink bg-haze text-purple shadow-pop-sm">
+                  <Icon name={s.icon} className="h-6 w-6" />
                 </span>
                 {s.title}
               </h2>

@@ -14,7 +14,6 @@ export const DOWNLOAD_URL = '#download'
 
 export type Category = {
   name: string
-  glyph: string
   color: string // CSS var name from index.css @theme
   tree: string
   blurb: string
@@ -23,35 +22,30 @@ export type Category = {
 export const CATEGORIES: Category[] = [
   {
     name: 'Adventure',
-    glyph: '🧭',
     color: 'var(--color-adventure)',
     tree: treeAdventure,
     blurb: 'Go somewhere new. Wander, explore, say yes.',
   },
   {
     name: 'Fitness',
-    glyph: '💪',
     color: 'var(--color-fitness)',
     tree: treeFitness,
     blurb: 'Move your body. Sweat a little. Grow a strong oak.',
   },
   {
     name: 'Social',
-    glyph: '🫂',
     color: 'var(--color-social)',
     tree: treeSocial,
     blurb: 'Reach out, show up, connect. Flowering trees.',
   },
   {
     name: 'Creative',
-    glyph: '🎨',
     color: 'var(--color-creative)',
     tree: treeCreative,
     blurb: 'Make something. Anything. Grow a rare glowing plant.',
   },
   {
     name: 'Night',
-    glyph: '🌙',
     color: 'var(--color-night)',
     tree: treeNight,
     blurb: 'Wind down, rest well, dream. Moonlit plants.',

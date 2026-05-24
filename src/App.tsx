@@ -18,6 +18,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
+      <div className="space-bg" aria-hidden="true" />
       <ScrollToTop />
       <Nav />
       <Routes>

@@ -1,10 +1,14 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 
 type Props = {
   href: string
   children: ReactNode
   variant?: 'primary' | 'ghost'
-  size?: 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
+  /** Use a react-router <Link> for internal navigation instead of <a>. */
+  router?: boolean
+  id?: string
   className?: string
 }
 
@@ -17,12 +21,14 @@ export default function PopButton({
   children,
   variant = 'primary',
   size = 'md',
+  router = false,
+  id,
   className = '',
 }: Props) {
   const base =
     'inline-flex items-center justify-center gap-2 font-display font-semibold rounded-full border-[3px] border-ink ' +
     'shadow-pop transition-all duration-100 ease-out active:translate-x-[3px] active:translate-y-[3px] active:shadow-none ' +
-    'hover:-translate-y-0.5'
+    'hover:-translate-y-0.5 whitespace-nowrap'
 
   const variants = {
     primary: 'bg-purple text-cream',
@@ -30,15 +36,23 @@ export default function PopButton({
   }
 
   const sizes = {
+    sm: 'px-3.5 py-2 text-sm',
     md: 'px-5 py-2.5 text-base',
     lg: 'px-7 py-3.5 text-lg',
   }
 
+  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`
+
+  if (router) {
+    return (
+      <Link to={href} id={id} className={classes}>
+        {children}
+      </Link>
+    )
+  }
+
   return (
-    <a
-      href={href}
-      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
-    >
+    <a href={href} id={id} className={classes}>
       {children}
     </a>
   )
