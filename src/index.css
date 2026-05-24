@@ -1,111 +1,87 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* ─────────────────────────────────────────────────────────────
+   OptiLife POP design tokens — ported from the Flutter app
+   (lib/theme/app_colors.dart + app_typography.dart).
+   Bold, candy-bright, high-contrast, chunky, thick ink outlines,
+   hard offset "sticker" shadows.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* core palette */
+  --color-ink: #1a1626;
+  --color-cream: #fff7ec;
+  --color-paper: #ffffff;
+  --color-haze: #f0e9ff;
+  --color-haze-deep: #e7def5;
+  --color-muted: #9b8fb0;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* pop accents */
+  --color-purple: #7c4dff;
+  --color-pink: #ff4d9d;
+  --color-yellow: #ffd23f;
+  --color-teal: #1ec7c0;
+  --color-coral: #ff6b5e;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  /* biome */
+  --color-biome: #7ac974;
+  --color-biome-sky: #e3f1d6;
+
+  /* brand mark (from the logo) */
+  --color-navy: #011737;
+  --color-leaf: #5fbba3;
+
+  /* the 5 quest categories */
+  --color-adventure: #ff8a3d;
+  --color-fitness: #ff4d6d;
+  --color-social: #ffc24b;
+  --color-creative: #9b5de5;
+  --color-night: #4361ee;
+
+  /* type */
+  --font-display: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  /* chunky radii */
+  --radius-pop: 1.5rem;
+}
+
+/* Hard offset "sticker" shadows — the POP signature (no blur). */
+@utility shadow-pop {
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+@utility shadow-pop-sm {
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+@utility shadow-pop-lg {
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+
+/* A floating bounce for hero motifs. */
+@keyframes pop-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@utility animate-float {
+  animation: pop-float 4s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  body {
+    margin: 0;
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.3px;
   }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
