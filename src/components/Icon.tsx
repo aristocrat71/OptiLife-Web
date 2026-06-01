@@ -24,6 +24,8 @@ export type IconName =
   | 'calendar'
   | 'rocket'
   | 'arrowRight'
+  | 'mail'
+  | 'send'
 
 /**
  * Minimal line-icon set in the app's iconography language
@@ -193,6 +195,18 @@ const PATHS: Record<IconName, ReactNode> = {
     <>
       <path d="M5 12h14" />
       <path d="m12 5 7 7-7 7" />
+    </>
+  ),
+  mail: (
+    <>
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m2 7 10 6L22 7" />
+    </>
+  ),
+  send: (
+    <>
+      <path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.63l-19 6.5a.5.5 0 0 0-.02.93l7.93 3.18a2 2 0 0 1 1.11 1.11z" />
+      <path d="m21.85 2.15-10.94 10.94" />
     </>
   ),
 }

@@ -13,6 +13,9 @@ export { logo }
 // Falls back to '#' so the build never breaks if it's unset.
 export const DOWNLOAD_URL = import.meta.env.VITE_DOWNLOAD_URL ?? '#'
 
+// Where the feedback section's messages are addressed.
+export const FEEDBACK_EMAIL = 'projektdreamscape@gmail.com'
+
 export type Category = {
   name: string
   color: string // CSS var name from index.css @theme

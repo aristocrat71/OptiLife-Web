@@ -4,6 +4,7 @@ import Features from '../sections/Features'
 import Categories from '../sections/Categories'
 import BiomeShowcase from '../sections/BiomeShowcase'
 import Privacy from '../sections/Privacy'
+import Feedback from '../sections/Feedback'
 
 export default function Landing() {
   return (
@@ -14,6 +15,7 @@ export default function Landing() {
       <Categories />
       <BiomeShowcase />
       <Privacy />
+      <Feedback />
     </main>
   )
 }
